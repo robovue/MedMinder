@@ -27,8 +27,11 @@
 	// Do any additional setup after loading the view, typically from a nib.
 //    self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
+    if (!self.forTakingMeds) {
+        UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+        self.navigationItem.rightBarButtonItem = addButton;
+    }
+
 }
 - (IBAction)backBtn:(UIBarButtonItem *)sender {
     [self dismissViewControllerAnimated:NO completion:nil];
@@ -83,7 +86,10 @@
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
-    return YES;
+    if (!self.forTakingMeds)
+        return YES;
+    else
+        return NO;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -129,6 +135,11 @@
     // Edit the entity name as appropriate.
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Prescription" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
+    
+    if (self.forTakingMeds) {
+        NSPredicate *predicate =[NSPredicate predicateWithFormat:@"%@ IN whenToTake", self.detailItem];
+        [fetchRequest setPredicate:predicate];
+    }
     
     // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
@@ -220,6 +231,11 @@
 {
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [[object valueForKey:@"commonName"] description];
+    cell.detailTextLabel.text = [[object valueForKey:@"drugName"] description];
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:[object valueForKey:@"imageURL"] ofType:@"png"];
+    UIImage *theImage = [UIImage imageWithContentsOfFile:path];
+    cell.imageView.image = theImage;
 }
 
 @end

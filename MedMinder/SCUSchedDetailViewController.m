@@ -42,6 +42,7 @@
     Schedule *schedule = (Schedule*)self.detailItem;
     schedule.timeOfDay = self.timeOfDay.text;
     schedule.sortBy=self.sortBy.text;
+    schedule.time=self.timePicker.date;
 
     // Save the context.
     NSError *error = nil;
@@ -63,7 +64,10 @@
         Schedule *schedule = (Schedule*)self.detailItem;
         self.timeOfDay.text=schedule.timeOfDay;
         self.sortBy.text=schedule.sortBy;
- 
+        if (schedule.time) {
+            self.timePicker.date=schedule.time;
+        }
+
     }
 }
 

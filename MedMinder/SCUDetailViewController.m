@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *drugNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *commonNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *doseStrengthTextField;
+@property (weak, nonatomic) IBOutlet UITextField *imageURLTextField;
 @end
 
 @implementation SCUDetailViewController
@@ -44,6 +45,7 @@
     [self.drugName resignFirstResponder];
     [self.commonName resignFirstResponder];
     [self.doseStrength resignFirstResponder];
+    [self.imageURLTextField resignFirstResponder];
 }
 - (IBAction)save:(UIBarButtonItem *)sender {
     Prescription *prescription = (Prescription*)self.detailItem;
@@ -51,6 +53,7 @@
     prescription.commonName=self.commonName.text;
     prescription.doseStrength=self.doseStrength.text;
     prescription.directions=self.directions.text;
+    prescription.imageURL=self.imageURLTextField.text;
     // Save the context.
     NSError *error = nil;
     NSManagedObjectContext *context = prescription.managedObjectContext;
@@ -73,6 +76,7 @@
         self.commonName.text=prescription.commonName;
         self.doseStrength.text=prescription.doseStrength;
         self.directions.text=prescription.directions;
+        self.imageURLTextField.text=prescription.imageURL;
     }
 }
 

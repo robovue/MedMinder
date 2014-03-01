@@ -11,6 +11,9 @@
 #import <CoreData/CoreData.h>
 
 @interface SCUMasterViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@property BOOL forTakingMeds;
+
+@property (strong, nonatomic) id detailItem;
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;

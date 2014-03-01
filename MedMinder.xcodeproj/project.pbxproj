@@ -31,6 +31,7 @@
 		8100F9A518C1B29E0039975D /* Prescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 8100F9A418C1B29E0039975D /* Prescription.m */; };
 		8100F9AE18C1B5190039975D /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 8100F9AD18C1B5190039975D /* Schedule.m */; };
 		8100F9B118C1BED20039975D /* SCUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8100F9B018C1BED20039975D /* SCUViewController.m */; };
+		81D41D3318C22DA200A6D109 /* Zocor.png in Resources */ = {isa = PBXBuildFile; fileRef = 81D41D3218C22DA200A6D109 /* Zocor.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		8100F9AD18C1B5190039975D /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedule.m; sourceTree = "<group>"; };
 		8100F9AF18C1BED20039975D /* SCUViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCUViewController.h; sourceTree = "<group>"; };
 		8100F9B018C1BED20039975D /* SCUViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCUViewController.m; sourceTree = "<group>"; };
+		81D41D3218C22DA200A6D109 /* Zocor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Zocor.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,7 +152,7 @@
 				8100F96418C184910039975D /* SCUMasterViewController.m */,
 				8100F96618C184910039975D /* SCUDetailViewController.h */,
 				8100F96718C184910039975D /* SCUDetailViewController.m */,
-				8100F96918C184910039975D /* Images.xcassets */,
+				81D41D3418C22DB000A6D109 /* Images */,
 				8100F99118C19BE30039975D /* SCUSchedDetailViewController.h */,
 				8100F99218C19BE30039975D /* SCUSchedDetailViewController.m */,
 				8100F99318C19BE30039975D /* SCUSchedMasterViewController.h */,
@@ -202,6 +204,15 @@
 				8100F9A118C1B29D0039975D /* History.m */,
 			);
 			name = "Model(Generated)";
+			sourceTree = "<group>";
+		};
+		81D41D3418C22DB000A6D109 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				8100F96918C184910039975D /* Images.xcassets */,
+				81D41D3218C22DA200A6D109 /* Zocor.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8100F96A18C184910039975D /* Images.xcassets in Resources */,
+				81D41D3318C22DA200A6D109 /* Zocor.png in Resources */,
 				8100F95618C184910039975D /* InfoPlist.strings in Resources */,
 				8100F95F18C184910039975D /* Main.storyboard in Resources */,
 			);
@@ -521,6 +533,7 @@
 				8100F98318C184910039975D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8100F98418C184910039975D /* Build configuration list for PBXNativeTarget "MedMinderTests" */ = {
 			isa = XCConfigurationList;
@@ -529,6 +542,7 @@
 				8100F98618C184910039975D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
