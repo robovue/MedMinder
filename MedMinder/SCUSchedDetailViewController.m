@@ -43,6 +43,8 @@
     Schedule *schedule = (Schedule*)self.detailItem;
     schedule.timeOfDay = self.timeOfDay.text;
     schedule.sortBy=self.sortBy.text;
+    
+    
     schedule.time=self.timePicker.date;
 
     // Save the context.
