@@ -10,6 +10,7 @@
 
 #import "SCUDetailViewController.h"
 #import "SCUImageViewController.h"
+#import "Prescription.h"
 
 @interface SCUMasterViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
@@ -54,6 +55,8 @@
     // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
     [newManagedObject setValue:@"New Prescription" forKey:@"commonName"];
     
+    Prescription *prescription = (Prescription*)newManagedObject;
+    prescription.imageURL=nil;
     // Save the context.
     NSError *error = nil;
     if (![context save:&error]) {
@@ -239,11 +242,13 @@
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [[object valueForKey:@"commonName"] description];
     cell.detailTextLabel.text = [[object valueForKey:@"drugName"] description];
-    
-    NSString *path = [[NSBundle mainBundle] pathForResource:[object valueForKey:@"imageURL"] ofType:@"png"];
-    UIImage *theImage = [UIImage imageWithContentsOfFile:path];
-
-    cell.imageView.image = theImage;
+    NSString* imageStr = [object valueForKey:@"imageURL"];
+    if (imageStr) {
+        NSString *path = [[NSBundle mainBundle] pathForResource:imageStr ofType:@"png"];
+        UIImage *theImage = [UIImage imageWithContentsOfFile:path];
+        
+        cell.imageView.image = theImage;
+    }
 
 }
 

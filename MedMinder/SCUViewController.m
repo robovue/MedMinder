@@ -80,13 +80,26 @@ SCUAppDelegate *appDelegate;
     NSArray *sortDescriptors = @[sortDescriptor];
     
     [fetchRequest setSortDescriptors:sortDescriptors];
-    
+    Schedule *currentSchedule;
     NSError *error = nil;
 
     NSArray *arrayOfSchedules = [appDelegate.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     if (arrayOfSchedules.count>0) {
-        Schedule *schedule = arrayOfSchedules[0];
-        return schedule;
+        for (Schedule *schedule in arrayOfSchedules) {
+            NSCalendar *calendar = [NSCalendar currentCalendar];
+            NSDate *compareToDate = [[NSDate date] dateByAddingTimeInterval:+3600]; // subtract two hours from now
+            NSDateComponents *nowComponents = [calendar components:NSHourCalendarUnit + NSMinuteCalendarUnit fromDate:compareToDate];
+            NSDate *nowDate = [calendar dateFromComponents:nowComponents];
+            NSDateComponents *refComponents = [calendar components:NSHourCalendarUnit + NSMinuteCalendarUnit fromDate:schedule.time];
+            NSDate *refDate = [calendar dateFromComponents:refComponents];
+
+
+            NSComparisonResult result = [refDate compare:nowDate];
+            if (result == NSOrderedAscending) {
+                currentSchedule = schedule;
+            }
+        }
+        return currentSchedule;
     }
     else
         return nil;
