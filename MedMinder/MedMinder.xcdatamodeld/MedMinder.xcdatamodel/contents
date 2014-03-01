@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B42" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="History" representedClassName="History" syncable="YES">
+        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timeTaken" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="whichPrescription" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Prescription" inverseName="whenTaken" inverseEntity="Prescription" syncable="YES"/>
+    </entity>
+    <entity name="Prescription" representedClassName="Prescription">
+        <attribute name="commonName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="directions" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dosesPerDay" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="doseStrength" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="drugName" optional="YES" attributeType="String">
+            <userInfo/>
+        </attribute>
+        <attribute name="imageURL" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="whenTaken" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="History" inverseName="whichPrescription" inverseEntity="History" syncable="YES"/>
+        <relationship name="whenToTake" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Schedule" inverseName="whichPrescription" inverseEntity="Schedule" syncable="YES"/>
+        <userInfo/>
+    </entity>
+    <entity name="Schedule" representedClassName="Schedule" syncable="YES">
+        <attribute name="sortBy" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="timeOfDay" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="whichPrescription" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Prescription" inverseName="whenToTake" inverseEntity="Prescription" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Prescription" positionX="619" positionY="288" width="128" height="163"/>
+        <element name="Schedule" positionX="378" positionY="314" width="128" height="88"/>
+        <element name="History" positionX="853" positionY="360" width="128" height="88"/>
+    </elements>
+</model>
