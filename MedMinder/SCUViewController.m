@@ -47,7 +47,7 @@ SCUAppDelegate *appDelegate;
         SCUSchedMasterViewController *destVC = (SCUSchedMasterViewController *)navigationController.topViewController;
         NSManagedObjectContext *context = appDelegate.managedObjectContext;
         destVC.managedObjectContext = context;
-        destVC.forSelection=YES;
+        destVC.forSelection=NO;
     }
 }
 
