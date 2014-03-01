@@ -52,6 +52,8 @@ SCUAppDelegate *appDelegate;
         SCUMasterViewController *destVC = (SCUMasterViewController *)navigationController.topViewController;
         NSManagedObjectContext *context = appDelegate.managedObjectContext;
         destVC.managedObjectContext = context;
+        destVC.forTakingMeds=NO;
+
     }
     if ([[segue identifier] isEqualToString:@"schedule"]) {
         UINavigationController *navigationController = [segue destinationViewController];

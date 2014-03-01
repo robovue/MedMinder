@@ -136,10 +136,10 @@
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Prescription" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
-    if (self.forTakingMeds) {
-        NSPredicate *predicate =[NSPredicate predicateWithFormat:@"%@ IN whenToTake", self.detailItem];
-        [fetchRequest setPredicate:predicate];
-    }
+//    if (self.forTakingMeds) {
+//        NSPredicate *predicate =[NSPredicate predicateWithFormat:@"%@ IN whenToTake", self.detailItem];
+//        [fetchRequest setPredicate:predicate];
+//    }
     
     // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
@@ -149,6 +149,7 @@
     NSArray *sortDescriptors = @[sortDescriptor];
     
     [fetchRequest setSortDescriptors:sortDescriptors];
+    
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
