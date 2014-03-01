@@ -31,6 +31,7 @@
 		8100F9A518C1B29E0039975D /* Prescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 8100F9A418C1B29E0039975D /* Prescription.m */; };
 		8100F9AE18C1B5190039975D /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 8100F9AD18C1B5190039975D /* Schedule.m */; };
 		8100F9B118C1BED20039975D /* SCUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8100F9B018C1BED20039975D /* SCUViewController.m */; };
+		810C3A5018C28E05007E5216 /* Notifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 810C3A4F18C28E05007E5216 /* Notifications.m */; };
 		81D41D3318C22DA200A6D109 /* Zocor.png in Resources */ = {isa = PBXBuildFile; fileRef = 81D41D3218C22DA200A6D109 /* Zocor.png */; };
 		81D41D3718C2444900A6D109 /* SCUImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D41D3618C2444900A6D109 /* SCUImageViewController.m */; };
 		81D41D3918C2509200A6D109 /* OverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81D41D3818C2509200A6D109 /* OverlayView.xib */; };
@@ -83,6 +84,8 @@
 		8100F9AD18C1B5190039975D /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedule.m; sourceTree = "<group>"; };
 		8100F9AF18C1BED20039975D /* SCUViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCUViewController.h; sourceTree = "<group>"; };
 		8100F9B018C1BED20039975D /* SCUViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCUViewController.m; sourceTree = "<group>"; };
+		810C3A4E18C28E05007E5216 /* Notifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notifications.h; sourceTree = "<group>"; };
+		810C3A4F18C28E05007E5216 /* Notifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notifications.m; sourceTree = "<group>"; };
 		81D41D3218C22DA200A6D109 /* Zocor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Zocor.png; sourceTree = "<group>"; };
 		81D41D3518C2444900A6D109 /* SCUImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCUImageViewController.h; sourceTree = "<group>"; };
 		81D41D3618C2444900A6D109 /* SCUImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCUImageViewController.m; sourceTree = "<group>"; };
@@ -158,6 +161,8 @@
 				81D41D3618C2444900A6D109 /* SCUImageViewController.m */,
 				8100F9AF18C1BED20039975D /* SCUViewController.h */,
 				8100F9B018C1BED20039975D /* SCUViewController.m */,
+				810C3A4E18C28E05007E5216 /* Notifications.h */,
+				810C3A4F18C28E05007E5216 /* Notifications.m */,
 				8100F96318C184910039975D /* SCUMasterViewController.h */,
 				8100F96418C184910039975D /* SCUMasterViewController.m */,
 				8100F96618C184910039975D /* SCUDetailViewController.h */,
@@ -328,6 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81D41D3718C2444900A6D109 /* SCUImageViewController.m in Sources */,
+				810C3A5018C28E05007E5216 /* Notifications.m in Sources */,
 				8100F9AE18C1B5190039975D /* Schedule.m in Sources */,
 				8100F99618C19BE30039975D /* SCUSchedMasterViewController.m in Sources */,
 				8100F96818C184910039975D /* SCUDetailViewController.m in Sources */,

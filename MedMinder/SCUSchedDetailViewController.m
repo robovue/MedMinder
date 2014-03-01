@@ -9,6 +9,7 @@
 #import "SCUSchedDetailViewController.h"
 #import "Prescription.h"
 #import "Schedule.h"
+#import "Notifications.h"
 
 @interface SCUSchedDetailViewController ()
 - (void)configureView;
@@ -53,6 +54,9 @@
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
+    
+    [Notifications setUpLocalNotifications];
+
     [self.navigationController popViewControllerAnimated:NO];
 }
 

@@ -10,6 +10,7 @@
 #import "SCUSchedDetailViewController.h"
 #import "Schedule.h"
 #import "Prescription.h"
+#import "Notifications.h"
 
 @interface SCUSchedMasterViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
