@@ -196,7 +196,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)newIndexPath {
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:NULL];
     aFetchedResultsController.delegate = self;
     self.fetchedResultsController = aFetchedResultsController;
     
@@ -274,7 +274,13 @@ didSelectRowAtIndexPath:(NSIndexPath *)newIndexPath {
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[object valueForKey:@"timeOfDay"] description];
+    cell.textLabel.text = [object valueForKey:@"timeOfDay"];
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    [formatter setCalendar:[NSCalendar currentCalendar]];
+    
+    NSString *formatTemplate = [NSDateFormatter dateFormatFromTemplate:@"hh : mm" options:0 locale:[NSLocale currentLocale]];
+    [formatter setDateFormat:formatTemplate];
+    cell.detailTextLabel.text = [formatter stringFromDate:[object valueForKey:@"time"]];
     if (self.forSelection) {
         Prescription *prescription = (Prescription*)self.detailItem;
         if([prescription.whenToTake containsObject:object])

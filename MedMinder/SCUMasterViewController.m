@@ -9,6 +9,7 @@
 #import "SCUMasterViewController.h"
 
 #import "SCUDetailViewController.h"
+#import "SCUImageViewController.h"
 
 @interface SCUMasterViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
@@ -121,6 +122,11 @@
         NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         [[segue destinationViewController] setDetailItem:object];
     }
+    if ([[segue identifier] isEqualToString:@"image"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+        [[segue destinationViewController] setDetailItem:object];
+    }
 }
 
 #pragma mark - Fetched results controller
@@ -136,10 +142,10 @@
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Prescription" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
-//    if (self.forTakingMeds) {
-//        NSPredicate *predicate =[NSPredicate predicateWithFormat:@"%@ IN whenToTake", self.detailItem];
-//        [fetchRequest setPredicate:predicate];
-//    }
+    if (self.forTakingMeds && self.detailItem) {
+        NSPredicate *predicate =[NSPredicate predicateWithFormat:@"%@ IN whenToTake", self.detailItem];
+        [fetchRequest setPredicate:predicate];
+    }
     
     // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
@@ -153,7 +159,7 @@
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:NULL];
     aFetchedResultsController.delegate = self;
     self.fetchedResultsController = aFetchedResultsController;
     
@@ -236,7 +242,9 @@
     
     NSString *path = [[NSBundle mainBundle] pathForResource:[object valueForKey:@"imageURL"] ofType:@"png"];
     UIImage *theImage = [UIImage imageWithContentsOfFile:path];
+
     cell.imageView.image = theImage;
+
 }
 
 @end

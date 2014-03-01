@@ -32,6 +32,9 @@
 		8100F9AE18C1B5190039975D /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 8100F9AD18C1B5190039975D /* Schedule.m */; };
 		8100F9B118C1BED20039975D /* SCUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8100F9B018C1BED20039975D /* SCUViewController.m */; };
 		81D41D3318C22DA200A6D109 /* Zocor.png in Resources */ = {isa = PBXBuildFile; fileRef = 81D41D3218C22DA200A6D109 /* Zocor.png */; };
+		81D41D3718C2444900A6D109 /* SCUImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D41D3618C2444900A6D109 /* SCUImageViewController.m */; };
+		81D41D3918C2509200A6D109 /* OverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81D41D3818C2509200A6D109 /* OverlayView.xib */; };
+		81D41D3B18C264B600A6D109 /* Diovan.png in Resources */ = {isa = PBXBuildFile; fileRef = 81D41D3A18C264B600A6D109 /* Diovan.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +84,10 @@
 		8100F9AF18C1BED20039975D /* SCUViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCUViewController.h; sourceTree = "<group>"; };
 		8100F9B018C1BED20039975D /* SCUViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCUViewController.m; sourceTree = "<group>"; };
 		81D41D3218C22DA200A6D109 /* Zocor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Zocor.png; sourceTree = "<group>"; };
+		81D41D3518C2444900A6D109 /* SCUImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCUImageViewController.h; sourceTree = "<group>"; };
+		81D41D3618C2444900A6D109 /* SCUImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCUImageViewController.m; sourceTree = "<group>"; };
+		81D41D3818C2509200A6D109 /* OverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverlayView.xib; sourceTree = "<group>"; };
+		81D41D3A18C264B600A6D109 /* Diovan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Diovan.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +153,9 @@
 				8100F95A18C184910039975D /* SCUAppDelegate.h */,
 				8100F95B18C184910039975D /* SCUAppDelegate.m */,
 				8100F95D18C184910039975D /* Main.storyboard */,
+				81D41D3818C2509200A6D109 /* OverlayView.xib */,
+				81D41D3518C2444900A6D109 /* SCUImageViewController.h */,
+				81D41D3618C2444900A6D109 /* SCUImageViewController.m */,
 				8100F9AF18C1BED20039975D /* SCUViewController.h */,
 				8100F9B018C1BED20039975D /* SCUViewController.m */,
 				8100F96318C184910039975D /* SCUMasterViewController.h */,
@@ -211,6 +221,7 @@
 			children = (
 				8100F96918C184910039975D /* Images.xcassets */,
 				81D41D3218C22DA200A6D109 /* Zocor.png */,
+				81D41D3A18C264B600A6D109 /* Diovan.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -292,8 +303,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81D41D3B18C264B600A6D109 /* Diovan.png in Resources */,
 				8100F96A18C184910039975D /* Images.xcassets in Resources */,
 				81D41D3318C22DA200A6D109 /* Zocor.png in Resources */,
+				81D41D3918C2509200A6D109 /* OverlayView.xib in Resources */,
 				8100F95618C184910039975D /* InfoPlist.strings in Resources */,
 				8100F95F18C184910039975D /* Main.storyboard in Resources */,
 			);
@@ -314,6 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81D41D3718C2444900A6D109 /* SCUImageViewController.m in Sources */,
 				8100F9AE18C1B5190039975D /* Schedule.m in Sources */,
 				8100F99618C19BE30039975D /* SCUSchedMasterViewController.m in Sources */,
 				8100F96818C184910039975D /* SCUDetailViewController.m in Sources */,
