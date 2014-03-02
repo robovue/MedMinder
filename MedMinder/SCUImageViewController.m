@@ -31,6 +31,12 @@
         [self showImagePickerForSourceType:UIImagePickerControllerSourceTypeCamera];
 }
 
+
+- (IBAction)takenBtn:(UIButton *)sender {
+    [self.navigationController popViewControllerAnimated:NO];
+
+}
+
 - (void)showImagePickerForSourceType:(UIImagePickerControllerSourceType)sourceType
 {
     if (self.imageView.isAnimating)

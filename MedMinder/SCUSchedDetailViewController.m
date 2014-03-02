@@ -43,9 +43,12 @@
     Schedule *schedule = (Schedule*)self.detailItem;
     schedule.timeOfDay = self.timeOfDay.text;
     schedule.sortBy=self.sortBy.text;
+    NSCalendar *calendar = [NSCalendar currentCalendar];
     
+    unsigned unitFlags = NSHourCalendarUnit | NSMinuteCalendarUnit;
+    NSDateComponents *refComponents = [calendar components:unitFlags fromDate:self.timePicker.date];
     
-    schedule.time=self.timePicker.date;
+    schedule.time=[calendar dateFromComponents:refComponents];
 
     // Save the context.
     NSError *error = nil;
@@ -73,7 +76,6 @@
         if (schedule.time) {
             self.timePicker.date=schedule.time;
         }
-
     }
 }
 

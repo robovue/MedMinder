@@ -27,7 +27,7 @@ SCUAppDelegate *appDelegate;
     [fetchRequest setFetchBatchSize:10];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"sortBy" ascending:YES];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"time" ascending:YES];
     NSArray *sortDescriptors = @[sortDescriptor];
     
     [fetchRequest setSortDescriptors:sortDescriptors];
@@ -52,7 +52,9 @@ SCUAppDelegate *appDelegate;
             
             NSDate *notificationDate = [calendar dateFromComponents:nowComponents];
             
-            if ([notificationDate compare:[NSDate date]] ==NSOrderedDescending) {
+            NSDate *nowDate = [[NSDate date] dateByAddingTimeInterval:-1200];
+            
+            if ([notificationDate compare:nowDate] ==NSOrderedDescending) {
                 UILocalNotification *localNotif = [[UILocalNotification alloc] init];
                 if (localNotif == nil)
                     return;
