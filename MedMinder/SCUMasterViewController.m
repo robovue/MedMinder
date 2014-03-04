@@ -118,6 +118,30 @@
     return NO;
 }
 
+
+- (void)tableView:(UITableView *)theTableView
+didSelectRowAtIndexPath:(NSIndexPath *)newIndexPath {
+    
+    if (!self.forTakingMeds) {
+        return;
+    }
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    
+    [theTableView deselectRowAtIndexPath:[theTableView indexPathForSelectedRow] animated:NO];
+    UITableViewCell *cell = [theTableView cellForRowAtIndexPath:newIndexPath];
+    if (cell.accessoryType == UITableViewCellAccessoryNone) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        // Reflect selection in data model
+
+        
+    } else if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        // Reflect deselection in data model
+
+    }
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {

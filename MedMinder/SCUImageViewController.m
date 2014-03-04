@@ -33,8 +33,9 @@
 
 
 - (IBAction)takenBtn:(UIButton *)sender {
+    
+    
     [self.navigationController popViewControllerAnimated:NO];
-
 }
 
 - (void)showImagePickerForSourceType:(UIImagePickerControllerSourceType)sourceType
