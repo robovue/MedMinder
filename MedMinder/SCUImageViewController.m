@@ -18,7 +18,7 @@
 
 @implementation SCUImageViewController
 
-// testing github integration
+// testing github integration again
 
 - (void)viewDidLoad
 {
