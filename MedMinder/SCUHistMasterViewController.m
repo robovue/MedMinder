@@ -1,23 +1,21 @@
 //
-//  SCUMasterViewController.m
+//  SCUHistMasterViewController.m
 //  MedMinder
 //
 //  Created by Leo Chan on 2/28/14.
 //  Copyright (c) 2014 Leo Chan. All rights reserved.
 //
 
-#import "SCUMasterViewController.h"
-
-#import "SCUDetailViewController.h"
-#import "SCUImageViewController.h"
+#import "SCUHistMasterViewController.h"
+#import "Schedule.h"
 #import "Prescription.h"
-#import "History.h"
+#import "Notifications.h"
 
-@interface SCUMasterViewController ()
+@interface SCUHistMasterViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 @end
 
-@implementation SCUMasterViewController
+@implementation SCUHistMasterViewController
 
 - (void)awakeFromNib
 {
@@ -29,15 +27,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 //    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
-    if (!self.forTakingMeds) {
-        UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-        self.navigationItem.rightBarButtonItem = addButton;
-    }
-
-}
-- (IBAction)backBtn:(UIBarButtonItem *)sender {
-    [self dismissViewControllerAnimated:NO completion:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,26 +35,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)insertNewObject:(id)sender
-{
-    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-    NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-    
-    // If appropriate, configure the new managed object.
-    // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-    [newManagedObject setValue:@"New Prescription" forKey:@"commonName"];
-    
-    Prescription *prescription = (Prescription*)newManagedObject;
-    prescription.imageURL=nil;
-    // Save the context.
-    NSError *error = nil;
-    if (![context save:&error]) {
-         // Replace this implementation with code to handle the error appropriately.
-         // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }
+- (IBAction)backButton:(UIBarButtonItem *)sender {
+    [self dismissViewControllerAnimated:NO completion:nil];
+
 }
 
 #pragma mark - Table View
@@ -91,10 +63,7 @@
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
-    if (!self.forTakingMeds)
-        return YES;
-    else
-        return NO;
+    return YES;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -119,54 +88,31 @@
     return NO;
 }
 
-
 - (void)tableView:(UITableView *)theTableView
 didSelectRowAtIndexPath:(NSIndexPath *)newIndexPath {
-    
-    if (!self.forTakingMeds) {
-        return;
-    }
-    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-    
-    [theTableView deselectRowAtIndexPath:[theTableView indexPathForSelectedRow] animated:NO];
-    UITableViewCell *cell = [theTableView cellForRowAtIndexPath:newIndexPath];
-    NSManagedObject *newManagedObject;
-    if (cell.accessoryType == UITableViewCellAccessoryNone) {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        // Reflect selection in data model
-        newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"History" inManagedObjectContext:[self managedObjectContext]];
-        
-        History *record = (History*)newManagedObject;
-        record.timeTaken=[NSDate date];
-        Prescription *prescription = (Prescription*)object;
-        record.whichPrescription= prescription;
-        record.whichSchedule=self.detailItem;
-    }
-    else if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-        // Reflect deselection in data model
-        [self.managedObjectContext deleteObject:newManagedObject];
-    }
-    
-    // Save the context.
-    NSError *error = nil;
-    if (![self.managedObjectContext save:&error]) {
-        // Replace this implementation with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }
+
+//    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+//    NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+//    
+//    [theTableView deselectRowAtIndexPath:[theTableView indexPathForSelectedRow] animated:NO];
+//    UITableViewCell *cell = [theTableView cellForRowAtIndexPath:newIndexPath];
+//    if (cell.accessoryType == UITableViewCellAccessoryNone) {
+//        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+//        // Reflect selection in data model
+//        Prescription *prescription =(Prescription*)self.detailItem;
+//        [prescription addWhenToTakeObject:(Schedule*)object];
+//        
+//    } else if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
+//        cell.accessoryType = UITableViewCellAccessoryNone;
+//        // Reflect deselection in data model
+//        Prescription *prescription =(Prescription*)self.detailItem;
+//        [prescription removeWhenToTakeObject:(Schedule*)object];
+//    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-        [[segue destinationViewController] setDetailItem:object];
-    }
-    if ([[segue identifier] isEqualToString:@"image"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         [[segue destinationViewController] setDetailItem:object];
@@ -183,23 +129,17 @@ didSelectRowAtIndexPath:(NSIndexPath *)newIndexPath {
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Prescription" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"History" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
-    
-    if (self.forTakingMeds && self.detailItem) {
-        NSPredicate *predicate =[NSPredicate predicateWithFormat:@"%@ IN whenToTake", self.detailItem];
-        [fetchRequest setPredicate:predicate];
-    }
     
     // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"commonName" ascending:NO];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeTaken" ascending:YES];
     NSArray *sortDescriptors = @[sortDescriptor];
     
     [fetchRequest setSortDescriptors:sortDescriptors];
-    
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
@@ -281,16 +221,14 @@ didSelectRowAtIndexPath:(NSIndexPath *)newIndexPath {
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[object valueForKey:@"commonName"] description];
-    cell.detailTextLabel.text = [[object valueForKey:@"drugName"] description];
-    NSString* imageStr = [object valueForKey:@"imageURL"];
-    if (imageStr) {
-        NSString *path = [[NSBundle mainBundle] pathForResource:imageStr ofType:@"png"];
-        UIImage *theImage = [UIImage imageWithContentsOfFile:path];
-        
-        cell.imageView.image = theImage;
-    }
-
+    Prescription* prescription =[object valueForKey:@"whichPrescription"];
+    cell.textLabel.text = prescription.commonName;
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    [formatter setCalendar:[NSCalendar currentCalendar]];
+    
+    NSString *formatTemplate = [NSDateFormatter dateFormatFromTemplate:@"dd MM  hh : mm" options:0 locale:[NSLocale currentLocale]];
+    [formatter setDateFormat:formatTemplate];
+    cell.detailTextLabel.text = [formatter stringFromDate:[object valueForKey:@"timeTaken"]];
 }
 
 @end

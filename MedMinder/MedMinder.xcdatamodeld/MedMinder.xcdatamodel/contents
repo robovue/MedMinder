@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B42" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13C64" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="History" representedClassName="History" syncable="YES">
         <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timeTaken" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="whichPrescription" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Prescription" inverseName="whenTaken" inverseEntity="Prescription" syncable="YES"/>
+        <relationship name="whichSchedule" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Schedule" inverseName="whenTaken" inverseEntity="Schedule" syncable="YES"/>
     </entity>
     <entity name="Prescription" representedClassName="Prescription">
         <attribute name="commonName" optional="YES" attributeType="String" syncable="YES"/>
@@ -22,11 +23,12 @@
         <attribute name="sortBy" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="timeOfDay" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="whenTaken" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="History" inverseName="whichSchedule" inverseEntity="History" syncable="YES"/>
         <relationship name="whichPrescription" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Prescription" inverseName="whenToTake" inverseEntity="Prescription" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Prescription" positionX="619" positionY="288" width="128" height="163"/>
-        <element name="Schedule" positionX="378" positionY="314" width="128" height="88"/>
-        <element name="History" positionX="853" positionY="360" width="128" height="88"/>
+        <element name="History" positionX="1096" positionY="293" width="128" height="103"/>
+        <element name="Prescription" positionX="619" positionY="216" width="128" height="163"/>
+        <element name="Schedule" positionX="873" positionY="504" width="128" height="118"/>
     </elements>
 </model>

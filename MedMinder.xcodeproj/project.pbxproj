@@ -27,15 +27,15 @@
 		8100F97E18C184910039975D /* MedMinderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8100F97D18C184910039975D /* MedMinderTests.m */; };
 		8100F99518C19BE30039975D /* SCUSchedDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8100F99218C19BE30039975D /* SCUSchedDetailViewController.m */; };
 		8100F99618C19BE30039975D /* SCUSchedMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8100F99418C19BE30039975D /* SCUSchedMasterViewController.m */; };
-		8100F9A218C1B29D0039975D /* History.m in Sources */ = {isa = PBXBuildFile; fileRef = 8100F9A118C1B29D0039975D /* History.m */; };
-		8100F9A518C1B29E0039975D /* Prescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 8100F9A418C1B29E0039975D /* Prescription.m */; };
-		8100F9AE18C1B5190039975D /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 8100F9AD18C1B5190039975D /* Schedule.m */; };
 		8100F9B118C1BED20039975D /* SCUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8100F9B018C1BED20039975D /* SCUViewController.m */; };
 		810C3A5018C28E05007E5216 /* Notifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 810C3A4F18C28E05007E5216 /* Notifications.m */; };
 		810C3A5218C2994C007E5216 /* Actos.png in Resources */ = {isa = PBXBuildFile; fileRef = 810C3A5118C2994C007E5216 /* Actos.png */; };
+		816227ED18C825D4001594FA /* History.m in Sources */ = {isa = PBXBuildFile; fileRef = 816227EC18C825D4001594FA /* History.m */; };
+		816227F018C825D5001594FA /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 816227EF18C825D5001594FA /* Schedule.m */; };
+		816227F318C825D5001594FA /* Prescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 816227F218C825D5001594FA /* Prescription.m */; };
+		816227F618C82B85001594FA /* SCUHistMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 816227F518C82B85001594FA /* SCUHistMasterViewController.m */; };
 		81D41D3318C22DA200A6D109 /* Zocor.png in Resources */ = {isa = PBXBuildFile; fileRef = 81D41D3218C22DA200A6D109 /* Zocor.png */; };
 		81D41D3718C2444900A6D109 /* SCUImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D41D3618C2444900A6D109 /* SCUImageViewController.m */; };
-		81D41D3918C2509200A6D109 /* OverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81D41D3818C2509200A6D109 /* OverlayView.xib */; };
 		81D41D3B18C264B600A6D109 /* Diovan.png in Resources */ = {isa = PBXBuildFile; fileRef = 81D41D3A18C264B600A6D109 /* Diovan.png */; };
 /* End PBXBuildFile section */
 
@@ -77,21 +77,22 @@
 		8100F99218C19BE30039975D /* SCUSchedDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCUSchedDetailViewController.m; sourceTree = "<group>"; };
 		8100F99318C19BE30039975D /* SCUSchedMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCUSchedMasterViewController.h; sourceTree = "<group>"; };
 		8100F99418C19BE30039975D /* SCUSchedMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCUSchedMasterViewController.m; sourceTree = "<group>"; };
-		8100F9A018C1B29D0039975D /* History.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = History.h; sourceTree = "<group>"; };
-		8100F9A118C1B29D0039975D /* History.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = History.m; sourceTree = "<group>"; };
-		8100F9A318C1B29E0039975D /* Prescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prescription.h; sourceTree = "<group>"; };
-		8100F9A418C1B29E0039975D /* Prescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Prescription.m; sourceTree = "<group>"; };
-		8100F9AC18C1B5190039975D /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schedule.h; sourceTree = "<group>"; };
-		8100F9AD18C1B5190039975D /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedule.m; sourceTree = "<group>"; };
 		8100F9AF18C1BED20039975D /* SCUViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCUViewController.h; sourceTree = "<group>"; };
 		8100F9B018C1BED20039975D /* SCUViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCUViewController.m; sourceTree = "<group>"; };
 		810C3A4E18C28E05007E5216 /* Notifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notifications.h; sourceTree = "<group>"; };
 		810C3A4F18C28E05007E5216 /* Notifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notifications.m; sourceTree = "<group>"; };
 		810C3A5118C2994C007E5216 /* Actos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Actos.png; sourceTree = "<group>"; };
+		816227EB18C825D4001594FA /* History.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = History.h; sourceTree = "<group>"; };
+		816227EC18C825D4001594FA /* History.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = History.m; sourceTree = "<group>"; };
+		816227EE18C825D5001594FA /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schedule.h; sourceTree = "<group>"; };
+		816227EF18C825D5001594FA /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedule.m; sourceTree = "<group>"; };
+		816227F118C825D5001594FA /* Prescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prescription.h; sourceTree = "<group>"; };
+		816227F218C825D5001594FA /* Prescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Prescription.m; sourceTree = "<group>"; };
+		816227F418C82B85001594FA /* SCUHistMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCUHistMasterViewController.h; sourceTree = "<group>"; };
+		816227F518C82B85001594FA /* SCUHistMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCUHistMasterViewController.m; sourceTree = "<group>"; };
 		81D41D3218C22DA200A6D109 /* Zocor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Zocor.png; sourceTree = "<group>"; };
 		81D41D3518C2444900A6D109 /* SCUImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCUImageViewController.h; sourceTree = "<group>"; };
 		81D41D3618C2444900A6D109 /* SCUImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCUImageViewController.m; sourceTree = "<group>"; };
-		81D41D3818C2509200A6D109 /* OverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverlayView.xib; sourceTree = "<group>"; };
 		81D41D3A18C264B600A6D109 /* Diovan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Diovan.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,7 +159,6 @@
 				8100F95A18C184910039975D /* SCUAppDelegate.h */,
 				8100F95B18C184910039975D /* SCUAppDelegate.m */,
 				8100F95D18C184910039975D /* Main.storyboard */,
-				81D41D3818C2509200A6D109 /* OverlayView.xib */,
 				81D41D3518C2444900A6D109 /* SCUImageViewController.h */,
 				81D41D3618C2444900A6D109 /* SCUImageViewController.m */,
 				8100F9AF18C1BED20039975D /* SCUViewController.h */,
@@ -174,6 +174,8 @@
 				8100F99218C19BE30039975D /* SCUSchedDetailViewController.m */,
 				8100F99318C19BE30039975D /* SCUSchedMasterViewController.h */,
 				8100F99418C19BE30039975D /* SCUSchedMasterViewController.m */,
+				816227F418C82B85001594FA /* SCUHistMasterViewController.h */,
+				816227F518C82B85001594FA /* SCUHistMasterViewController.m */,
 				8100F96018C184910039975D /* MedMinder.xcdatamodeld */,
 				8100F99018C18B6F0039975D /* Model(Generated) */,
 				8100F95218C184910039975D /* Supporting Files */,
@@ -213,12 +215,12 @@
 		8100F99018C18B6F0039975D /* Model(Generated) */ = {
 			isa = PBXGroup;
 			children = (
-				8100F9AC18C1B5190039975D /* Schedule.h */,
-				8100F9AD18C1B5190039975D /* Schedule.m */,
-				8100F9A318C1B29E0039975D /* Prescription.h */,
-				8100F9A418C1B29E0039975D /* Prescription.m */,
-				8100F9A018C1B29D0039975D /* History.h */,
-				8100F9A118C1B29D0039975D /* History.m */,
+				816227F118C825D5001594FA /* Prescription.h */,
+				816227F218C825D5001594FA /* Prescription.m */,
+				816227EE18C825D5001594FA /* Schedule.h */,
+				816227EF18C825D5001594FA /* Schedule.m */,
+				816227EB18C825D4001594FA /* History.h */,
+				816227EC18C825D4001594FA /* History.m */,
 			);
 			name = "Model(Generated)";
 			sourceTree = "<group>";
@@ -315,7 +317,6 @@
 				81D41D3B18C264B600A6D109 /* Diovan.png in Resources */,
 				8100F96A18C184910039975D /* Images.xcassets in Resources */,
 				81D41D3318C22DA200A6D109 /* Zocor.png in Resources */,
-				81D41D3918C2509200A6D109 /* OverlayView.xib in Resources */,
 				8100F95618C184910039975D /* InfoPlist.strings in Resources */,
 				8100F95F18C184910039975D /* Main.storyboard in Resources */,
 			);
@@ -338,17 +339,18 @@
 			files = (
 				81D41D3718C2444900A6D109 /* SCUImageViewController.m in Sources */,
 				810C3A5018C28E05007E5216 /* Notifications.m in Sources */,
-				8100F9AE18C1B5190039975D /* Schedule.m in Sources */,
 				8100F99618C19BE30039975D /* SCUSchedMasterViewController.m in Sources */,
 				8100F96818C184910039975D /* SCUDetailViewController.m in Sources */,
 				8100F9B118C1BED20039975D /* SCUViewController.m in Sources */,
+				816227ED18C825D4001594FA /* History.m in Sources */,
 				8100F99518C19BE30039975D /* SCUSchedDetailViewController.m in Sources */,
 				8100F96218C184910039975D /* MedMinder.xcdatamodeld in Sources */,
 				8100F95C18C184910039975D /* SCUAppDelegate.m in Sources */,
+				816227F018C825D5001594FA /* Schedule.m in Sources */,
 				8100F96518C184910039975D /* SCUMasterViewController.m in Sources */,
 				8100F95818C184910039975D /* main.m in Sources */,
-				8100F9A218C1B29D0039975D /* History.m in Sources */,
-				8100F9A518C1B29E0039975D /* Prescription.m in Sources */,
+				816227F618C82B85001594FA /* SCUHistMasterViewController.m in Sources */,
+				816227F318C825D5001594FA /* Prescription.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

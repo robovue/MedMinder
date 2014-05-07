@@ -9,6 +9,7 @@
 #import "SCUViewController.h"
 #import "SCUMasterViewController.h"
 #import "SCUSchedMasterViewController.h"
+#import "SCUHistMasterViewController.h"
 #import "SCUAppDelegate.h"
 #import "Schedule.h"
 #import "Notifications.h"
@@ -119,6 +120,13 @@ SCUAppDelegate *appDelegate;
         NSManagedObjectContext *context = appDelegate.managedObjectContext;
         destVC.managedObjectContext = context;
         destVC.forSelection=NO;
+    }
+    
+    if ([[segue identifier] isEqualToString:@"history"]) {
+        UINavigationController *navigationController = [segue destinationViewController];
+        SCUHistMasterViewController *destVC = (SCUHistMasterViewController *)navigationController.topViewController;
+        NSManagedObjectContext *context = appDelegate.managedObjectContext;
+        destVC.managedObjectContext = context;
     }
 }
 

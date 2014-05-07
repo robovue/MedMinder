@@ -14,7 +14,6 @@
 @interface SCUSchedDetailViewController ()
 - (void)configureView;
 @property (weak, nonatomic) IBOutlet UITextField *timeOfDay;
-@property (weak, nonatomic) IBOutlet UITextField *sortBy;
 @property (weak, nonatomic) IBOutlet UIDatePicker *timePicker;
 
 @end
@@ -37,12 +36,10 @@
 }
 - (IBAction)dismissKB:(UIControl *)sender {
     [self.timeOfDay resignFirstResponder];
-    [self.sortBy resignFirstResponder];
 }
 - (IBAction)save:(UIBarButtonItem *)sender {
     Schedule *schedule = (Schedule*)self.detailItem;
     schedule.timeOfDay = self.timeOfDay.text;
-    schedule.sortBy=self.sortBy.text;
     NSCalendar *calendar = [NSCalendar currentCalendar];
     
     unsigned unitFlags = NSHourCalendarUnit | NSMinuteCalendarUnit;
@@ -72,7 +69,6 @@
     if (self.detailItem) {
         Schedule *schedule = (Schedule*)self.detailItem;
         self.timeOfDay.text=schedule.timeOfDay;
-        self.sortBy.text=schedule.sortBy;
         if (schedule.time) {
             self.timePicker.date=schedule.time;
         }

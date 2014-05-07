@@ -36,41 +36,33 @@ SCUAppDelegate *appDelegate;
     NSArray *arrayOfSchedules = [appDelegate.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
-    for (int i = 0; i<2; i++) {
-        for (Schedule *schedule in arrayOfSchedules) {
-            NSCalendar *calendar = [NSCalendar currentCalendar];
-            
-            unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit | NSSecondCalendarUnit;
-            NSDateComponents *nowComponents = [calendar components:unitFlags fromDate: [NSDate date]];
-            
-            unitFlags = NSHourCalendarUnit | NSMinuteCalendarUnit;
-            NSDateComponents *refComponents = [calendar components:unitFlags fromDate:schedule.time];
-            
-            [nowComponents setDay:nowComponents.day+i];
-            [nowComponents setHour:refComponents.hour];
-            [nowComponents setMinute:refComponents.minute];
-            
-            NSDate *notificationDate = [calendar dateFromComponents:nowComponents];
-            
-            NSDate *nowDate = [[NSDate date] dateByAddingTimeInterval:-1200];
-            
-            if ([notificationDate compare:nowDate] ==NSOrderedDescending) {
-                UILocalNotification *localNotif = [[UILocalNotification alloc] init];
-                if (localNotif == nil)
-                    return;
-                localNotif.fireDate = notificationDate;
-                localNotif.timeZone = [NSTimeZone defaultTimeZone];
-                localNotif.alertBody = @"Please take your meds";
-                
-                localNotif.alertAction = NSLocalizedString(@"View Details", nil);
-                localNotif.soundName = UILocalNotificationDefaultSoundName;
-                localNotif.applicationIconBadgeNumber = 0;
-                //    NSDictionary *infoDict = [NSDictionary dictionaryWithObject:item.eventName
-                //                                                         forKey:ToDoItemKey];
-                //    localNotif.userInfo = infoDict;
-                [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
-            }
-        }
+    for (Schedule *schedule in arrayOfSchedules) {
+        NSCalendar *calendar = [NSCalendar currentCalendar];
+        
+        unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit | NSSecondCalendarUnit;
+        NSDateComponents *nowComponents = [calendar components:unitFlags fromDate: [NSDate date]];
+        
+        unitFlags = NSHourCalendarUnit | NSMinuteCalendarUnit;
+        NSDateComponents *refComponents = [calendar components:unitFlags fromDate:schedule.time];
+        
+        [nowComponents setDay:nowComponents.day];
+        [nowComponents setHour:refComponents.hour];
+        [nowComponents setMinute:refComponents.minute];
+        [nowComponents setSecond:0];
+        
+        NSDate *notificationDate = [calendar dateFromComponents:nowComponents];
+        
+        UILocalNotification *localNotif = [[UILocalNotification alloc] init];
+        if (localNotif == nil)
+            return;
+        localNotif.fireDate = notificationDate;
+        localNotif.repeatInterval= NSDayCalendarUnit;
+        localNotif.timeZone = [NSTimeZone defaultTimeZone];
+        localNotif.alertBody = [NSString stringWithFormat:@"Please take your meds: %@",schedule.timeOfDay];
+        localNotif.alertAction = NSLocalizedString(@"View Details", nil);
+        localNotif.soundName = UILocalNotificationDefaultSoundName;
+        localNotif.applicationIconBadgeNumber = 0;
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
     }
 }
 @end

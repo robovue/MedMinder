@@ -2,7 +2,7 @@
 //  Prescription.m
 //  MedMinder
 //
-//  Created by Leo Chan on 2/28/14.
+//  Created by Leo Chan on 3/5/14.
 //  Copyright (c) 2014 Leo Chan. All rights reserved.
 //
 
@@ -13,13 +13,13 @@
 
 @implementation Prescription
 
-@dynamic drugName;
 @dynamic commonName;
-@dynamic doseStrength;
 @dynamic directions;
 @dynamic dosesPerDay;
+@dynamic doseStrength;
+@dynamic drugName;
 @dynamic imageURL;
-@dynamic whenToTake;
 @dynamic whenTaken;
+@dynamic whenToTake;
 
 @end
